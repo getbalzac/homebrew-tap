@@ -1,25 +1,25 @@
 class Balzac < Formula
   desc "A blazingly fast static site generator"
   homepage "https://balzac.rs"
-  version "0.1.7"
+  version "0.1.8"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/getbalzac/balzac/releases/download/v0.1.7/balzac-aarch64-apple-darwin.tar.xz"
-      sha256 "13f7fb979af5ab862edd9b110eac6066e4242e412bdfdad06392ec5a0d6ece94"
+      url "https://github.com/getbalzac/balzac/releases/download/v0.1.8/balzac-aarch64-apple-darwin.tar.xz"
+      sha256 "c19b297db7b41d5188ea69377b593a81e5a39a3c5e5a8b472fd8e975454ad083"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/getbalzac/balzac/releases/download/v0.1.7/balzac-x86_64-apple-darwin.tar.xz"
-      sha256 "7e29eb613d3b8f10858df998bcc05f3709dc5c116591cdddb583c557a352519d"
+      url "https://github.com/getbalzac/balzac/releases/download/v0.1.8/balzac-x86_64-apple-darwin.tar.xz"
+      sha256 "2cb567d3446f15e28f9b1d1c8a491c88ac4cee59cd1b0927e870378ba487d721"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/getbalzac/balzac/releases/download/v0.1.7/balzac-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "fbf22ccbbc3f79e6a518e81fd83d3b81e13329ba9f5a294cfcbcb4057112c0f5"
+      url "https://github.com/getbalzac/balzac/releases/download/v0.1.8/balzac-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "d4770c9b96b380aaf1a9a8d7d1131396fd1a9c08413183b9a71dadebdf1ab450"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/getbalzac/balzac/releases/download/v0.1.7/balzac-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "38ea89adf685148b06ff0455cb81e85c2ef1bcb9144ab9b58a0cd93cec119493"
+      url "https://github.com/getbalzac/balzac/releases/download/v0.1.8/balzac-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "23cfe655e4a28acbb8a6c8d63ac4042d862907fde7bcdd1cd38f396bf42ec34d"
     end
   end
   license "MIT"
