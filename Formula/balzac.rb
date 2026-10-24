@@ -1,35 +1,40 @@
 class Balzac < Formula
   desc "A blazingly fast static site generator"
   homepage "https://balzac.rs"
-  version "0.1.10"
+  version "0.1.11"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/getbalzac/balzac/releases/download/v0.1.10/balzac-aarch64-apple-darwin.tar.xz"
-      sha256 "842e1ec219553256956fa2c7e21369fc8f65c3d80c9e8be47962aa69f07f8a1c"
+      url "https://github.com/getbalzac/balzac/releases/download/v0.1.11/balzac-aarch64-apple-darwin.tar.xz"
+      sha256 "d2f0d3739682d03c3076d37c1401eda351066dcf1abfb6b2098f6bd2d553e71a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/getbalzac/balzac/releases/download/v0.1.10/balzac-x86_64-apple-darwin.tar.xz"
-      sha256 "e739e92f83c2300d47363663d7774631ef85982ef5b898a7f4d7387b73566d68"
+      url "https://github.com/getbalzac/balzac/releases/download/v0.1.11/balzac-x86_64-apple-darwin.tar.xz"
+      sha256 "b73d07c760bd1ff2b3bb16e5cbf0610c45a61bbf8da22d7b4c01d409b772339b"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/getbalzac/balzac/releases/download/v0.1.10/balzac-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "69bbd4e5c1779c0cef6b6f76af9d1c8640c2702eaebfa40ddff798f85956c998"
+      url "https://github.com/getbalzac/balzac/releases/download/v0.1.11/balzac-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "1ee994ca23ed5e4b95a4783519cf02897d9ce5f7e73bfc05a383a8439d0958a2"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/getbalzac/balzac/releases/download/v0.1.10/balzac-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "4d6b9afadacbdf6aaff0c1786eb7f57b5831db3e4a18f5c97c46169c749cb35d"
+      url "https://github.com/getbalzac/balzac/releases/download/v0.1.11/balzac-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "86ff1092ec736ceaa44362f3f02d34d631ef07352c5980788d7f65547703bdcd"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin":      {},
-    "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin":       {},
-    "x86_64-pc-windows-gnu":     {},
-    "x86_64-unknown-linux-gnu":  {},
+    "aarch64-apple-darwin":               {},
+    "aarch64-pc-windows-gnu":             {},
+    "aarch64-unknown-linux-gnu":          {},
+    "aarch64-unknown-linux-musl-dynamic": {},
+    "aarch64-unknown-linux-musl-static":  {},
+    "x86_64-apple-darwin":                {},
+    "x86_64-pc-windows-gnu":              {},
+    "x86_64-unknown-linux-gnu":           {},
+    "x86_64-unknown-linux-musl-dynamic":  {},
+    "x86_64-unknown-linux-musl-static":   {},
   }.freeze
 
   def target_triple
@@ -48,10 +53,18 @@ class Balzac < Formula
   end
 
   def install
-    bin.install "balzac" if OS.mac? && Hardware::CPU.arm?
-    bin.install "balzac" if OS.mac? && Hardware::CPU.intel?
-    bin.install "balzac" if OS.linux? && Hardware::CPU.arm?
-    bin.install "balzac" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "balzac"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "balzac"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "balzac"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "balzac"
+    end
 
     install_binary_aliases!
 
